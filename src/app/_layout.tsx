@@ -26,7 +26,7 @@ function MainLayout() {
       }
 
       handleSetUser(null);
-      router.replace('/');
+      router.replace('/(auth)/SignIn/page');
     });
   }, []);
 

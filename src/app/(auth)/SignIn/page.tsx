@@ -1,26 +1,17 @@
 import React, { useState } from 'react'
-import { router } from 'expo-router';
-import { Button, Form, Header, Page, TextInput } from '@/components';
+import { Button, Form, Header, LinkButton, Page, TextInput } from '@/components';
 import { useAuth } from '@/hooks/auth/useAuth';
 
-export default function SignUp() {
-  const [name, setName] = useState('');
+export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const { isLoadingAuth, handleSignUp } = useAuth();
-
+  const { handleSignIn, isLoadingAuth } = useAuth();
   return (
     <Page>
-      <Header title='Criar uma conta' onPressGoBack={router.back} />
+      <Header title='O futuro da programação' />
 
       <Form>
-        <TextInput
-          label='Nome'
-          placeholder='Informe seu nome completo'
-          value={name}
-          onChangeText={setName}
-        />
         <TextInput
           label='E-mail'
           placeholder='Informe seu e-mail'
@@ -30,15 +21,22 @@ export default function SignUp() {
         <TextInput
           label='Senha'
           placeholder='Informe sua senha'
-          secureTextEntry
           value={password}
           onChangeText={setPassword}
+          secureTextEntry
         />
 
         <Button
-          text='Cadastrar'
+          text='Acessar'
           isLoading={isLoadingAuth}
-          onPress={() => handleSignUp({ name, email, password })}
+          onPress={() => handleSignIn({ email, password })}
+        />
+
+        <LinkButton
+          title='Ainda não possui uma conta?'
+          subtitle='Cadastre-se'
+          href='/(auth)/signup/page'
+          style={{ marginBottom: 20 }}
         />
       </Form>
     </Page>

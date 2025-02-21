@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, TouchableOpacity, TouchableOpacityProps, StyleSheet, ActivityIndicator } from 'react-native'
-import colors from '@/src/constants/colors';
+import colors from '@/constants/colors';
 
 type TButtonProps = TouchableOpacityProps & {
   text: string;

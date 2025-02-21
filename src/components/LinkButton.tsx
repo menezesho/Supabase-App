@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, StyleSheet } from 'react-native'
 import { Link, LinkProps } from 'expo-router';
-import colors from '@/src/constants/colors';
+import colors from '@/constants/colors';
 
 type TLinkButtonProps = LinkProps & {
   title: string;

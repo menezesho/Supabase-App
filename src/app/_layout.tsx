@@ -1,6 +1,35 @@
-import { Stack } from 'expo-router';
+import { router, Stack } from 'expo-router';
+import { AuthProvider } from '@/contexts/AuthContext';
+import { useEffect } from 'react';
+import { supabase } from '@/lib/supabase';
+import { useAuth } from '@/hooks/auth/useAuth';
 
-export default function MainLayout() {
+export default function RootLayout() {
+  return (
+    <AuthProvider>
+      <MainLayout />
+    </AuthProvider>
+  );
+};
+
+function MainLayout() {
+  const { handleSetUser } = useAuth();
+
+  useEffect(() => {
+    supabase.auth.onAuthStateChange((event, session) => {
+      console.log('session', session?.user)
+
+      if (session) {
+        handleSetUser(session.user);
+
+        return router.replace('/(panel)/profile/page');
+      }
+
+      handleSetUser(null);
+      router.replace('/');
+    });
+  }, []);
+
   return (
     <Stack>
       <Stack.Screen
@@ -9,6 +38,10 @@ export default function MainLayout() {
       />
       <Stack.Screen
         name="(auth)/signup/page"
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="(auth)/SignIn/page"
         options={{ headerShown: false }}
       />
       <Stack.Screen

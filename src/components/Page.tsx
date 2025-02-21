@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, ViewProps, SafeAreaView, ScrollView } from 'react-native'
-import colors from '@/src/constants/colors';
+import colors from '@/constants/colors';
 
 type TPageProps = ViewProps & {
   children?: React.ReactNode;

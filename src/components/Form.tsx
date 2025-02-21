@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, ViewProps } from 'react-native'
-import colors from '@/src/app/constants/colors';
+import colors from '@/src/constants/colors';
 
 type TFormProps = ViewProps & {
   children?: React.ReactNode;

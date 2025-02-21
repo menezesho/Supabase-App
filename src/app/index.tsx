@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Form, Header, LinkButton, Page, TextInput } from './components';
+import { Button, Form, Header, LinkButton, Page, TextInput } from '../components';
 
 export default function Login() {
   const [isLoading, setIsLoading] = useState(false);

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, TouchableOpacity, TouchableOpacityProps, StyleSheet } from 'react-native'
-import colors from '@/src/app/constants/colors';
+import colors from '@/src/constants/colors';
 
 type TButtonProps = TouchableOpacityProps & {
   text: string;
@@ -26,5 +26,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: colors.white,
     fontWeight: 'bold',
+    fontSize: 16,
   },
 });

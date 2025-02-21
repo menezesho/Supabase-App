@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, TextInput as RNTextInput, TextInputProps, StyleSheet } from 'react-native'
-import colors from '@/src/app/constants/colors';
+import colors from '@/src/constants/colors';
 
 type TTextFieldProps = TextInputProps & {
   label: string;
@@ -19,13 +19,14 @@ const styles = StyleSheet.create({
   label: {
     color: colors.zinc,
     marginBottom: 4,
+    fontWeight: '500',
   },
   input: {
     borderWidth: 1,
     borderColor: colors.gray,
     borderRadius: 8,
     marginBottom: 16,
-    paddingHorizontal: 8,
-    paddingVertical: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 12,
   },
 });

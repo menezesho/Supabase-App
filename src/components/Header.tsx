@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
-import colors from '@/src/app/constants/colors';
+import colors from '@/src/constants/colors';
 
 type THeaderProps = {
   title: string;

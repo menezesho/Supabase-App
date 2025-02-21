@@ -1,17 +1,14 @@
 import React, { useState } from 'react'
 import { router } from 'expo-router';
-import { Button, Form, Header, Page, TextInput } from '../../components';
+import { Button, Form, Header, Page, TextInput } from '../../../components';
+import { useAuth } from '../../../hooks/auth/useAuth';
 
-export default function Login() {
-  const [isLoading, setIsLoading] = useState(false);
-
+export default function SignUp() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSignup = () => {
-    console.log('Cadastrar>>>', name, email, password);
-  };
+  const { isLoadingAuth, handleSignUp } = useAuth();
 
   return (
     <Page>
@@ -38,7 +35,10 @@ export default function Login() {
           onChangeText={setPassword}
         />
 
-        <Button text='Cadastrar' onPress={handleSignup} />
+        <Button
+          text='Cadastrar'
+          onPress={() => handleSignUp({ email, password })}
+        />
       </Form>
     </Page>
   );

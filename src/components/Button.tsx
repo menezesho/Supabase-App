@@ -1,15 +1,25 @@
 import React from 'react'
-import { Text, TouchableOpacity, TouchableOpacityProps, StyleSheet } from 'react-native'
+import { Text, TouchableOpacity, TouchableOpacityProps, StyleSheet, ActivityIndicator } from 'react-native'
 import colors from '@/src/constants/colors';
 
 type TButtonProps = TouchableOpacityProps & {
   text: string;
+  isLoading?: boolean;
 };
 
-export function Button({ text, ...rest }: TButtonProps) {
+export function Button({ text, isLoading, disabled, ...rest }: TButtonProps) {
   return (
-    <TouchableOpacity activeOpacity={0.8} style={styles.button} {...rest}>
-      <Text style={styles.buttonText}>{text}</Text>
+    <TouchableOpacity
+      disabled={disabled ? disabled : isLoading}
+      activeOpacity={0.8}
+      style={styles.button}
+      {...rest}
+    >
+      {isLoading ? (
+        <ActivityIndicator color={colors.white} />
+      ) : (
+        <Text style={styles.buttonText}>{text}</Text>
+      )}
     </TouchableOpacity>
   );
 };

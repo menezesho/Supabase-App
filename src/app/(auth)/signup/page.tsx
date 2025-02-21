@@ -37,7 +37,8 @@ export default function SignUp() {
 
         <Button
           text='Cadastrar'
-          onPress={() => handleSignUp({ email, password })}
+          isLoading={isLoadingAuth}
+          onPress={() => handleSignUp({ name, email, password })}
         />
       </Form>
     </Page>

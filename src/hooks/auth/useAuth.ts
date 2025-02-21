@@ -8,7 +8,7 @@ export const useAuth = () => {
   const [isLoadingAuth, setIsLoadingAuth] = useState(false);
 
   const handleSignUp = async (credentials: TSignUpCredentials) => {
-    const { email, password } = credentials;
+    const { email, password, name } = credentials;
 
     try {
       setIsLoadingAuth(true);
@@ -16,7 +16,7 @@ export const useAuth = () => {
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
-
+        options: { data: { name } }
       });
 
       if (error) {

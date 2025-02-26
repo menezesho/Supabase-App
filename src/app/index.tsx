@@ -1,10 +1,9 @@
-import { Page } from '@/components';
-import { ActivityIndicator } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 import colors from '@/constants/colors';
 
 export default function AppLoading() {
   return (
-    <Page
+    <View
       style={{
         flex: 1,
         backgroundColor: colors.white,
@@ -13,6 +12,6 @@ export default function AppLoading() {
       }}
     >
       <ActivityIndicator size="large" color={colors.green} />
-    </Page>
+    </View>
   );
 };

@@ -13,7 +13,7 @@ export default function RootLayout() {
 };
 
 function MainLayout() {
-  const { handleSetUser } = useAuth();
+  const { handleSetUser, user } = useAuth();
 
   useEffect(() => {
     supabase.auth.onAuthStateChange((event, session) => {

@@ -3,13 +3,11 @@ import { useState } from "react";
 import { TSignInCredentials, TSignUpCredentials } from "./types";
 import { Alert } from "react-native";
 import { router } from "expo-router";
-import { User } from "@supabase/supabase-js";
+import { useAuthUser } from "@/contexts/AuthContext";
 
 export const useAuth = () => {
-  const [user, setUser] = useState<User | null>(null);
   const [isLoadingAuth, setIsLoadingAuth] = useState(false);
-
-  const handleSetUser = (user: User | null) => setUser(user);
+  const { user, handleSetUser } = useAuthUser();
 
   const handleSignIn = async (credentials: TSignInCredentials) => {
     const { email, password } = credentials;
@@ -27,7 +25,7 @@ export const useAuth = () => {
         return Alert.alert("Erro ao autenticar", errorMessage);
       }
 
-      router.navigate("/(panel)/profile/page");
+      router.navigate("/(panel)/Profile/page");
     } catch (error) {
       console.error("Erro ao autenticar", error);
     } finally {
@@ -65,7 +63,7 @@ export const useAuth = () => {
 
       if (error) return Alert.alert("Erro ao sair", error.message);
 
-      setUser(null);
+      handleSetUser(null);
     } catch (error) {
       console.error("Erro ao sair", error);
     }

@@ -1,14 +1,14 @@
 import React from 'react'
-import { Button } from '@/components';
 import { useAuth } from '@/hooks/auth/useAuth';
-import { View, Text, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
+import { Button, ProfileHeader } from '@/components';
 
 export default function Profile() {
-  const { handleSignOut } = useAuth();
+  const { handleSignOut, user } = useAuth();
 
   return (
-    <View style={styles.container}>
-      <Text>Pagina de perfil</Text>
+    <View style={styles.screen}>
+      <ProfileHeader user={user} />
 
       <Button
         text='Sair'
@@ -19,9 +19,8 @@ export default function Profile() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  screen: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
   }
 });

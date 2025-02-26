@@ -4,3 +4,4 @@ export * from './Header';
 export * from './LinkButton';
 export * from './Page';
 export * from './TextInput';
+export * from './ProfileHeader/ProfileHeader';

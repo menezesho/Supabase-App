@@ -10,7 +10,9 @@ interface AuthContextProps {
 export const AuthContext = createContext({} as AuthContextProps);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const { user, handleSetUser } = useAuth();
+  const [user, setUser] = useState<User | null>(null);
+
+  const handleSetUser = (user: User | null) => setUser(user);
 
   return (
     <AuthContext.Provider value={{ user, handleSetUser }}>
@@ -19,4 +21,4 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-// export const useAuthUser = () => useContext(AuthContext);
+export const useAuthUser = () => useContext(AuthContext);

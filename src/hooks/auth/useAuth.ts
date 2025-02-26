@@ -51,7 +51,7 @@ export const useAuth = () => {
 
       Alert.alert("Sucesso", "Cadastro realizado com sucesso");
 
-      router.replace("/");
+      router.replace("/(auth)/SignIn/page");
     } catch (error) {
       console.error("Erro ao cadastrar", error);
     } finally {

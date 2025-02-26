@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Button, Form, Header, LinkButton, Page, TextInput } from '@/components';
 import { useAuth } from '@/hooks/auth/useAuth';
 
-export default function Login() {
+export default function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
